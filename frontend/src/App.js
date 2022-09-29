@@ -1,15 +1,19 @@
-import React from 'react';
-import './index.css';
+import React from 'react'
+// import { connect } from 'react-redux'
+// import NavBar from './components/NavBar'
+// import PetsContainer from'./containers/PetsContainer'
 
-function App() {
-  return (
-    <div className="App">
-      <header className="App-header">
-      
+class App extends React.Component {
   
-      </header>
-    </div>
-  );
+  render(){
+    return(
+      <div>
+        {/* <NavBar/>
+        <PetsContainer /> */}
+        My App
+      </div>
+    )
+  }
 }
 
-export default App;
+export default  App// connect()(App)
