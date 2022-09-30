@@ -1,19 +1,17 @@
-import React from 'react'
-// import { connect } from 'react-redux'
-// import NavBar from './components/NavBar'
-// import PetsContainer from'./containers/PetsContainer'
+import { BrowserRouter as Router, Routes, Route} from 'react-router-dom'
 
-class App extends React.Component {
-  
-  render(){
-    return(
+function App () {
+  return (
+    <>
+    <Router>
       <div>
-        {/* <NavBar/>
-        <PetsContainer /> */}
-        My App
+        <Routes>
+          <Route/>
+        </Routes>
       </div>
-    )
-  }
+    </Router>
+    </>
+  )
 }
 
-export default  App// connect()(App)
+export default App
