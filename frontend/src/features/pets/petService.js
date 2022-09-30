@@ -6,7 +6,6 @@ const API_URL = '/api/pets/'
 const getPets = async (token) => {
     const config = {
       headers: {
-        Authorization: `Bearer ${token}`,
       },
     }
   

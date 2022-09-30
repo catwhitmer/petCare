@@ -11,8 +11,7 @@ export const getPets = createAsyncThunk(
   'pets',
   async (_, thunkAPI) => {
     try {
-      const token = thunkAPI.getState().auth.user.token
-      return await petService.getPets(token)
+      return await petService.getPets()
     } catch (error) {
       const message =
         (error.response &&
@@ -27,11 +26,10 @@ export const getPets = createAsyncThunk(
 
 // Create new pet
 export const createPet = createAsyncThunk(
-  'pet/create',
+  'pet/new',
   async (petData, thunkAPI) => {
     try {
-      const token = thunkAPI.getState().auth.user.token
-      return await petService.createGoal(petData, token)
+      return await petService.createGoal(petData)
     } catch (error) {
       const message =
         (error.response &&
