@@ -1,4 +1,4 @@
-import { createSlice, createAsyncThunk } from 'reduxjs/toolkit'
+import { createSlice, createAsyncThunk } from '@reduxjs/toolkit'
 import petService from './petService'
 
 const initialState = {
