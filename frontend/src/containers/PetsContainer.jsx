@@ -1,7 +1,9 @@
+import Pets from "../components/Pets"
+
 function PetsContainer () {
   return (
     <div className='pets-container'>
-      Hello         
+      <Pets/>        
     </div>
   )
 }
