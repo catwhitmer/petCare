@@ -3,7 +3,7 @@ import axios from 'axios'
 const API_URL = '/api/pets/'
 
 // Get pets
-const getPets = async (token) => {
+const getPets = async () => {
     const config = {
       headers: {
       },
