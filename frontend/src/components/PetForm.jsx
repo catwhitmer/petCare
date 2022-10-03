@@ -1,22 +1,59 @@
+import { useState } from "react"
+
 function PetForm () {
 
+  const [formData, setFormData] = useState({
+    name: '',
+    species: '',
+    breed: '',
+    age: ''
+  })
 
-	const handleOnSubmit  = () => {
+  const { name, species, breed, age } = formData
 
+
+	const handleOnSubmit  = (e) => {
+    e.preventDefault()
 	}
 
-	const handleOnChange = () => {
-
+	const handleOnChange = (e) => {
+    setFormData((prevState) => ({
+      ...prevState,
+      [e.target.name]: e.target.value,
+    }))
 	}
 
 	return (
-		<form className='pet-wrapper' onSubmit={handleOnSubmit()}>
+		<form className='pet-wrapper' onSubmit={handleOnSubmit}>
       <h1>Add A New Pet</h1>
-        <input type='text' name='name' value={''} placeholder= 'Name' onChange={handleOnChange()}/><br></br>
-        <input type='text' name='species' value={''} placeholder= 'Species' onChange={handleOnChange()} /><br></br>
-        <input type='text' name='breed' value={''} placeholder='Breed' onChange={handleOnChange()} /><br></br>
-        <input type='text' name='age' value={''} placeholder= 'Age' onChange={handleOnChange()} /><br></br>
-        
+        <input 
+          type='text' 
+          name='name' 
+          value={name} 
+          placeholder= 'Name' 
+          onChange={handleOnChange}
+        />
+        <input 
+          type='text' 
+          name='species' 
+          value={'species'} 
+          placeholder= 'Species' 
+          onChange={handleOnChange} 
+        />
+        <input 
+          type='text' 
+          name='breed' 
+          value={'breed'} 
+          placeholder='Breed' 
+          onChange={handleOnChange}
+        />
+        <input 
+          type='text' 
+          name='age' 
+          value={'age'} 
+          placeholder= 'Age' 
+          onChange={handleOnChange} 
+        />
         <button type='submit'>Submit</button>
     </form>
   )
