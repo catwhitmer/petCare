@@ -4,18 +4,14 @@ const API_URL = '/api/pets/'
 
 // Get pets
 const getPets = async () => {
-    const config = {
-      headers: {
-      },
-    }
-  
-    const response = await axios.get(API_URL, config)
-  
-    return response.data
-  }
+  const response = await axios.get(API_URL)
+  console.log(response)
+  console.log(API_URL)
+  return response.data
+}
 
 const petService = {
-    getPets,
+  getPets,
 }
 
 export default petService

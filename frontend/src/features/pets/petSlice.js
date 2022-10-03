@@ -11,8 +11,10 @@ export const getPets = createAsyncThunk(
   'pets',
   async (_, thunkAPI) => {
     try {
+      console.log(petService.getPets())
       return await petService.getPets()
     } catch (error) {
+      console.log(error)
       const message =
         (error.response &&
           error.response.data &&
@@ -26,11 +28,13 @@ export const getPets = createAsyncThunk(
 
 // Create new pet
 export const createPet = createAsyncThunk(
-  'pet/new',
+  'pets/new',
   async (petData, thunkAPI) => {
     try {
-      return await petService.createGoal(petData)
+      console.log(petData)
+      return await petService.createPet(petData)
     } catch (error) {
+      console.log(error)
       const message =
         (error.response &&
           error.response.data &&
@@ -52,6 +56,13 @@ export const petSlice = createSlice({
     builder
       .addCase(getPets.pending, (state) => {
         state.isLoading = true
+      })
+      .addCase(getPets.fulfilled, (state, action) => {
+        state.isLoading = false
+        state.pets = action.payload
+      })
+      .addCase(getPets.rejected, (state, action) => {
+        state.isLoading = false
       })
   }
 })
