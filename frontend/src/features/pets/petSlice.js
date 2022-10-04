@@ -9,19 +9,18 @@ const initialState = {
 
 // Get pets
 export const getPets = createAsyncThunk(
-  'pet/getPets',
+  'pets/getPets',
   async () => {
     try {
-      const resp = await petService.getPets()
-      return resp.data
+      return petService.getPets()
     } catch (error) {
-      return error.resp
+      return error.data
     }
   }
 )
 
 export const petSlice = createSlice({
-  name: 'pet',
+  name: 'pets',
   initialState,
   reducers: {
     reset: (state) => initialState,
