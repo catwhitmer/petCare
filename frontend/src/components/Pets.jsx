@@ -1,12 +1,12 @@
 import { useEffect } from 'react'
 import { useDispatch, useSelector } from 'react-redux'
-import { getPets, reset } from '../features/pets/petSlice'
+import { getPets } from '../features/pets/petSlice'
 
 const Pets = () => {
 
   const dispatch = useDispatch()
 
-  const petData = useSelector(state => state.pets)
+  const petData = useSelector(state => state.pets.pets)
 
   useEffect(() => {
     dispatch(getPets())
@@ -16,7 +16,7 @@ const Pets = () => {
 	return (
     <div className='pet-wrapper'>
       <h1>My Pets</h1>
-      {petData.pets.map((pet) => (
+      {petData.map((pet) => (
         <h3>{pet.name}</h3>
       ))}
     </div>
