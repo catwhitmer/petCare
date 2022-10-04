@@ -4,44 +4,18 @@ import petService from './petService'
 const initialState = {
   pets: [],
   isLoading: false,
+  message: '',
 }
 
 // Get pets
 export const getPets = createAsyncThunk(
-  'api/pets',
-  async (_, thunkAPI) => {
+  'pet/getPets',
+  async () => {
     try {
-      console.log(petService.getPets())
-      return await petService.getPets()
+      const resp = await petService.getPets()
+      return resp.data
     } catch (error) {
-      console.log(error)
-      const message =
-        (error.response &&
-          error.response.data &&
-          error.response.data.message) ||
-        error.message ||
-        error.toString()
-      return thunkAPI.rejectWithValue(message)
-    }
-  }
-)
-
-// Create new pet
-export const createPet = createAsyncThunk(
-  'api/pets/new',
-  async (petData, thunkAPI) => {
-    try {
-      console.log(petData)
-      return await petService.createPet(petData)
-    } catch (error) {
-      console.log(error)
-      const message =
-        (error.response &&
-          error.response.data &&
-          error.response.data.message) ||
-        error.message ||
-        error.toString()
-      return thunkAPI.rejectWithValue(message)
+      return error.resp
     }
   }
 )
@@ -63,6 +37,7 @@ export const petSlice = createSlice({
       })
       .addCase(getPets.rejected, (state, action) => {
         state.isLoading = false
+        state.message = action.payload
       })
   }
 })
