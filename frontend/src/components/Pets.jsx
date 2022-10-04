@@ -10,14 +10,13 @@ const Pets = () => {
   // const pets = useSelector(state => state.petSlice.pets)
   // const isLoading = useSelector(state => state.petSlice.isLoading)
 
-
-    dispatch(getPets())
-    // console.log(isLoading)
-
+  // useEffect(() => {
+  //   dispatch(getPets())
+  // }, [])
+  
   
 	return (
     <div className='pet-wrapper'>
-			Pets
 			<Pet/>
     </div>
   )
