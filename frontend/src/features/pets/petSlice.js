@@ -8,7 +8,7 @@ const initialState = {
 
 // Get pets
 export const getPets = createAsyncThunk(
-  'pets',
+  'api/pets',
   async (_, thunkAPI) => {
     try {
       console.log(petService.getPets())
@@ -28,7 +28,7 @@ export const getPets = createAsyncThunk(
 
 // Create new pet
 export const createPet = createAsyncThunk(
-  'pets/new',
+  'api/pets/new',
   async (petData, thunkAPI) => {
     try {
       console.log(petData)
