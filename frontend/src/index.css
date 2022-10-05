@@ -114,3 +114,9 @@ button {
   border-radius: 20px;
   border: 2px solid navy; 
 }
+
+.pet-form {
+  width: 500px;
+  position: relative;
+  display: inline-block;
+}
