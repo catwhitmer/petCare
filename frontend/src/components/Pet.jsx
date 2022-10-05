@@ -13,9 +13,11 @@ const Pet = () => {
   return (
     <div className='pet-wrapper'>
       <h1>{currentPet[0].name}</h1>
-      <h3>{currentPet[0].species}</h3>
-      <h3>{currentPet[0].breed}</h3>
-      <h3>{currentPet[0].age}</h3>
+      <div className='pet'>
+        <h3 style={{textAlign: 'left'}}>{currentPet[0].species}</h3>
+        <h3 style={{textAlign: 'left'}}>{currentPet[0].breed}</h3>
+        <h3 style={{textAlign: 'left'}}>{currentPet[0].age}</h3>
+      </div>
     </div>
   )
 }

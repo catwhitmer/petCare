@@ -104,3 +104,13 @@ button {
   display: inline-block;
  
 }
+
+.pet {
+  width: 200px;
+  position: relative;
+  display: inline-block;
+  background-color: slategray;
+  padding: 10px;
+  border-radius: 20px;
+  border: 2px solid navy; 
+}
