@@ -1,8 +1,10 @@
 import { BrowserRouter as Router, Routes, Route} from 'react-router-dom'
 import NavBar from './components/NavBar'
 import PetsContainer from './containers/PetsContainer'
+import Pet from './components/Pet'
 import PetForm from './components/PetForm'
 import Home from './components/Home'
+
 
 function App () {
   return (
@@ -14,6 +16,7 @@ function App () {
             <Route path='/' element={<Home />} />
             <Route path='/pets' element={<PetsContainer />} />
             <Route path='/pets/new' element={<PetForm />} />
+            <Route path='/pets/:id' element={<Pet />} />
           </Routes>
         </div>
       </Router>
