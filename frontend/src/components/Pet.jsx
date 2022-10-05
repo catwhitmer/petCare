@@ -1,10 +1,21 @@
+import { useSelector } from 'react-redux'
+import { useLocation } from 'react-router-dom'
 
-const Pet = (props) => {
+const Pet = () => {
+
+  const location = useLocation()
+
+  const petData = useSelector(state => state.pets.pets)
+
+  const petID = location.pathname.replace('/pets/', '')
+  const currentPet = petData.filter((pet) => pet._id === petID)
+  
   return (
-    <div>
-      <h1>Pet</h1>
-        <h2>
-        </h2>
+    <div className='pet-wrapper'>
+      <h1>{currentPet[0].name}</h1>
+      <h3>{currentPet[0].species}</h3>
+      <h3>{currentPet[0].breed}</h3>
+      <h3>{currentPet[0].age}</h3>
     </div>
   )
 }
