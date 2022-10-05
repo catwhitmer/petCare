@@ -16,11 +16,13 @@ const Pets = () => {
 	return (
     <div className='pet-wrapper'>
       <h1>My Pets</h1>
-      {petData.map((pet) => (
-        <h3 key={pet._id}>
-          <Link to={`/pets/${pet._id}`}>{pet.name}</Link>
-        </h3> 
-      ))}
+      <div className='pets'>
+        {petData.map((pet) => (
+          <h2 key={pet._id}>
+            <Link to={`/pets/${pet._id}`}>{pet.name}</Link>
+          </h2> 
+        ))}
+      </div>
     </div>
   )
 }

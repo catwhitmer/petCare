@@ -37,7 +37,7 @@
 }
 
 a {
-  color: rgb(22, 22, 22);
+  color: rgb(214, 214, 214);
   text-decoration: none;
 }
 
@@ -96,4 +96,11 @@ button {
   border-radius: 20px;
   background-color: #000b49;
   color: #f1f1f1;
+}
+
+.pets {
+  width: 200px;
+  position: relative;
+  display: inline-block;
+ 
 }
