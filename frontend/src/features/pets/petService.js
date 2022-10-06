@@ -11,7 +11,7 @@ const getPets = async () => {
 // Create pet
 const createPet = async (petData) => {
   console.log(petData)
-  const response = await axios.post(API_URL + '/new', petData)
+  const response = await axios.post(API_URL, petData)
   console.log(response)
   return response.data
 }

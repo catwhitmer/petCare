@@ -27,7 +27,6 @@ export const createPet = createAsyncThunk(
   async (petData) => {
     const petInfo = petData.formData
     try {
-      console.log(petInfo)
       return petService.createPet(petInfo)
     } catch (error) {
       return error.data
