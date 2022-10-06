@@ -3,6 +3,8 @@ import petService from './petService'
 
 const initialState = {
   pets: [],
+  isError: false,
+  isSuccess: false,
   isLoading: false,
   message: '',
 }
@@ -13,6 +15,20 @@ export const getPets = createAsyncThunk(
   async () => {
     try {
       return petService.getPets()
+    } catch (error) {
+      return error.data
+    }
+  }
+)
+
+// Create Pet
+export const createPet = createAsyncThunk(
+  'pets/createPet',
+  async (petData) => {
+    const petInfo = petData.formData
+    try {
+      console.log(petInfo)
+      return petService.createPet(petInfo)
     } catch (error) {
       return error.data
     }
@@ -32,10 +48,25 @@ export const petSlice = createSlice({
       })
       .addCase(getPets.fulfilled, (state, action) => {
         state.isLoading = false
+        state.isSuccess = true
         state.pets = action.payload
       })
       .addCase(getPets.rejected, (state, action) => {
         state.isLoading = false
+        state.isError = true
+        state.message = action.payload
+      })
+      .addCase(createPet.pending, (state, action) => {
+        state.isLoading = true
+      })
+      .addCase(createPet.fulfilled, (state, action) => {
+        state.isLoading = false
+        state.isSuccess = true
+        state.pets.push(action.payload)
+      })
+      .addCase(createPet.rejected, (state, action) => {
+        state.isLoading = false
+        state.isError = true
         state.message = action.payload
       })
   }

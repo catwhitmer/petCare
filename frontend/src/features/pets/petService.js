@@ -8,8 +8,17 @@ const getPets = async () => {
   return response.data
 }
 
+// Create pet
+const createPet = async (petData) => {
+  console.log(petData)
+  const response = await axios.post(API_URL + '/new', petData)
+  console.log(response)
+  return response.data
+}
+
 const petService = {
   getPets,
+  createPet,
 }
 
 export default petService
