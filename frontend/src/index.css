@@ -6,12 +6,16 @@
 }
 
 .NavBar {
-  height: 100px;
+  height: 80px;
   padding: 10px;
   border-radius: 20px;
   font-size: 1.5em;
   border: 2px solid #28afb0;
   background-color: slategray;
+}
+
+.header {
+  font: -webkit-small-control;
 }
 
 .pet-wrapper {
@@ -36,7 +40,7 @@
 }
 
 .pet {
-  width: 200px;
+  width: 300px;
   display: inline-block;
   padding: 10px;
   margin-top: 20px;
@@ -84,16 +88,15 @@ h3 {
 }
 
 .img {
-  float: center;
-  width:  80px;
-  height: 80px;
-  object-fit: cover;
+  width:  50px;
+  height: 50px;
   padding: 1em;
 }
 
 .icon {
   width: 30px;
   height: 30px;
+  float: right;
 }
 
 .icon:hover {
