@@ -1,6 +1,10 @@
 import { useState } from "react"
+import { useDispatch } from 'react-redux'
+import { createPet } from '../features/pets/petSlice'
 
 function PetForm () {
+
+  const dispatch = useDispatch()
 
   const [formData, setFormData] = useState({
     name: '',
@@ -14,6 +18,15 @@ function PetForm () {
 
 	const handleOnSubmit  = (e) => {
     e.preventDefault()
+
+    dispatch(createPet( { formData }))
+
+    setFormData({
+      name: '',
+      species: '',
+      breed: '',
+      age: ''
+    })
 	}
 
 	const handleOnChange = (e) => {
@@ -30,28 +43,28 @@ function PetForm () {
           <input 
             type='text' 
             name='name' 
-            value={'name'} 
+            value={name} 
             placeholder= 'Name' 
             onChange={handleOnChange}
           />
           <input 
             type='text' 
             name='species' 
-            value={'species'} 
+            value={species} 
             placeholder= 'Species' 
             onChange={handleOnChange} 
           />
           <input 
             type='text' 
             name='breed' 
-            value={'breed'} 
+            value={breed} 
             placeholder='Breed' 
             onChange={handleOnChange}
           />
           <input 
             type='text' 
             name='age' 
-            value={'age'} 
+            value={age} 
             placeholder= 'Age' 
             onChange={handleOnChange} 
           />
