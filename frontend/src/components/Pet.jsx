@@ -19,7 +19,7 @@ const Pet = () => {
         <Card className='pet'>
           <div style={{display: 'flex', alignItems: 'center'}}>
             <h1>{currentPet[0].name}</h1>
-            <AutoFixHighIcon className='icon' />
+            <AutoFixHighIcon className='icon' style={{marginInlineStart: 'auto'}}/>
             <DeleteForeverIcon className='icon' />
           </div>
           <div style={{textAlign: 'left'}}>
