@@ -2,16 +2,17 @@ const mongoose = require('mongoose')
 
 const petSchema = mongoose.Schema({
     name: {
-        type: String
+        type: String,
+        required: [true, 'Please add a name'],
     },
     species: {
-        type: String
+        type: String,
     },
     breed: {
-        type: String
+        type: String,
     },
     age: {
-        type: Number
+        type: Number,
     }
 }, {
     timestamps: true,
