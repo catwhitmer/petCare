@@ -1,39 +1,53 @@
 .body {
   height: 100%;
   width: 100%;
-  text-align: center;
   background: rgb(2,0,36);
   background: linear-gradient(-170deg, rgba(2,0,36,1) 0%, rgba(9,36,121,1) 50%, rgba(0,212,255,1) 100%);
 }
 
 .NavBar {
-  background-color: slategray;
-  height: 140px;
+  height: 100px;
   padding: 10px;
-  text-align: justify;
   border-radius: 20px;
   font-size: 1.5em;
   border: 2px solid #28afb0;
-}
-
-.pets-container {
-  padding: 60px;
-  text-align: center;
-  height: 60%;
-  width: 100%;
-  justify-content: center;
-  display: flex;
-  justify-items: center;
-  align-self: center;
+  background-color: slategray;
 }
 
 .pet-wrapper {
-  height: 530px;
-  width: 800px;
-  background-color: #28afb0;
+  height: 400px;
+  width: 600px;
+  padding: 10px;
+  text-align: center;
   display: inline-block;
+  position: absolute;
+  left: 0;
+  right: 0;
+  bottom: 0;
+  margin: auto;
   border-radius: 20px;
   border: 2px solid #28afb0;
+  background-color: #28afb0;
+}
+
+.pets {
+  width: 200px;
+  display: inline-block;
+}
+
+.pet {
+  width: 200px;
+  display: inline-block;
+  padding: 10px;
+  margin-top: 20px;
+  border-radius: 20px;
+  border: 2px solid navy; 
+  background-color: slategray;
+}
+
+.pet-form {
+  width: 500px;
+  display: inline-block;
 }
 
 a {
@@ -55,7 +69,6 @@ h2 {
 
 h3 {
   color: #19647e ;
-  text-align: center;
 }
 
 .button {
@@ -72,8 +85,8 @@ h3 {
 
 .img {
   float: center;
-  width:  100px;
-  height: 100px;
+  width:  80px;
+  height: 80px;
   object-fit: cover;
   padding: 1em;
 }
@@ -96,27 +109,4 @@ button {
   border-radius: 20px;
   background-color: #000b49;
   color: #f1f1f1;
-}
-
-.pets {
-  width: 200px;
-  position: relative;
-  display: inline-block;
- 
-}
-
-.pet {
-  width: 200px;
-  position: relative;
-  display: inline-block;
-  background-color: slategray;
-  padding: 10px;
-  border-radius: 20px;
-  border: 2px solid navy; 
-}
-
-.pet-form {
-  width: 500px;
-  position: relative;
-  display: inline-block;
 }
