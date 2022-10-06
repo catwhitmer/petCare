@@ -7,12 +7,15 @@ const petSchema = mongoose.Schema({
     },
     species: {
         type: String,
+        required: [true, 'Please add a species'],
     },
     breed: {
         type: String,
+        required: [true, 'Please add a breed'],
     },
     age: {
         type: Number,
+        required: [true, 'Please add an age'],
     }
 }, {
     timestamps: true,
