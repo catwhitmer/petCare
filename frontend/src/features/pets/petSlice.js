@@ -14,7 +14,7 @@ export const getPets = createAsyncThunk(
   'pets/getPets',
   async () => {
     try {
-      return petService.getPets()
+      return await petService.getPets()
     } catch (error) {
       return error.data
     }
@@ -27,20 +27,7 @@ export const createPet = createAsyncThunk(
   async (petData) => {
     const petInfo = petData.formData
     try {
-      return petService.createPet(petInfo)
-    } catch (error) {
-      return error.data
-    }
-  }
-)
-
-// Create Pet
-export const editPet = createAsyncThunk(
-  'pets/editPet',
-  async (petData) => {
-    const petId = petData.formData
-    try {
-      return petService.createPet(petId)
+      return await petService.createPet(petInfo)
     } catch (error) {
       return error.data
     }
@@ -49,10 +36,9 @@ export const editPet = createAsyncThunk(
 
 export const deletePet = createAsyncThunk(
   'pets/deletePet',
-  async (petData) => {
-    const petId = petData.formData
+  async (id) => {
     try {
-      return petService.createPet(petId)
+      return await petService.deletePet(id)
     } catch (error) {
       return error.data
     }
@@ -93,26 +79,13 @@ export const petSlice = createSlice({
         state.isError = true
         state.message = action.payload
       })
-      .addCase(editPet.pending, (state, action) => {
-        state.isLoading = true
-      })
-      .addCase(editPet.fulfilled, (state, action) => {
-        state.isLoading = false
-        state.isSuccess = true
-        state.pets.push(action.payload)
-      })
-      .addCase(editPet.rejected, (state, action) => {
-        state.isLoading = false
-        state.isError = true
-        state.message = action.payload
-      })
       .addCase(deletePet.pending, (state, action) => {
         state.isLoading = true
       })
       .addCase(deletePet.fulfilled, (state, action) => {
         state.isLoading = false
         state.isSuccess = true
-        state.pets = action.payload
+        state.pets = state.pets.filter((pet) => pet._id !== action.payload._id)
       })
       .addCase(deletePet.rejected, (state, action) => {
         state.isLoading = false

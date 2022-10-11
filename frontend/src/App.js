@@ -16,7 +16,6 @@ function App () {
             <Route path='/' element={<Home />} />
             <Route path='/pets' element={<Pets />} />
             <Route path='/pets/new' element={<PetForm />} />
-            <Route path='/pets/:id/edit' element={<PetForm />}/>
             <Route path='/pets/:id' element={<Pet />} />
           </Routes>
         </div>

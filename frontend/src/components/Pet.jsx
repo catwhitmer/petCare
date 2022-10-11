@@ -1,12 +1,13 @@
-import { useSelector } from 'react-redux'
+import { useSelector, useDispatch } from 'react-redux'
 import { useLocation, useNavigate } from 'react-router-dom'
 import Card from '@mui/material/Card'
-import AutoFixHighIcon from '@mui/icons-material/AutoFixHigh';
 import DeleteForeverIcon from '@mui/icons-material/DeleteForever';
+import { deletePet } from '../features/pets/petSlice';
 
 const Pet = () => {
 
   const location = useLocation()
+  const dispatch = useDispatch()
   const navigate = useNavigate()
 
   const petData = useSelector(state => state.pets.pets)
@@ -14,14 +15,21 @@ const Pet = () => {
   const petID = location.pathname.replace('/pets/', '')
   const currentPet = petData.filter((pet) => pet._id === petID)
 
+  const handleDelete = () => {
+    if (currentPet[0]._id === petID) {
+      //alert('Are you sure?')
+      dispatch(deletePet(petID))
+      navigate('/pets')
+
+    }
+    
+  }
+
   return (
     <div className='pet-wrapper'>    
         <Card className='pet'>
-          <div style={{display: 'flex', alignItems: 'center'}}>
-            <h1>{currentPet[0].name}</h1>
-            <AutoFixHighIcon onClick={event => navigate('/pets/edit')} className='icon' style={{marginInlineStart: 'auto'}}/>
-            <DeleteForeverIcon className='icon' />
-          </div>
+          <DeleteForeverIcon className='icon' onClick={handleDelete} style={{float: 'right'}}/>
+          <h1>{currentPet[0].name}</h1> 
           <div style={{textAlign: 'left'}}>
             <h3>{currentPet[0].species}</h3>
             <h3>{currentPet[0].breed}</h3>
