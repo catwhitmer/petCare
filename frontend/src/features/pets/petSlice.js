@@ -34,6 +34,31 @@ export const createPet = createAsyncThunk(
   }
 )
 
+// Create Pet
+export const editPet = createAsyncThunk(
+  'pets/editPet',
+  async (petData) => {
+    const petId = petData.formData
+    try {
+      return petService.createPet(petId)
+    } catch (error) {
+      return error.data
+    }
+  }
+)
+
+export const deletePet = createAsyncThunk(
+  'pets/deletePet',
+  async (petData) => {
+    const petId = petData.formData
+    try {
+      return petService.createPet(petId)
+    } catch (error) {
+      return error.data
+    }
+  }
+)
+
 export const petSlice = createSlice({
   name: 'pets',
   initialState,
@@ -64,6 +89,32 @@ export const petSlice = createSlice({
         state.pets.push(action.payload)
       })
       .addCase(createPet.rejected, (state, action) => {
+        state.isLoading = false
+        state.isError = true
+        state.message = action.payload
+      })
+      .addCase(editPet.pending, (state, action) => {
+        state.isLoading = true
+      })
+      .addCase(editPet.fulfilled, (state, action) => {
+        state.isLoading = false
+        state.isSuccess = true
+        state.pets.push(action.payload)
+      })
+      .addCase(editPet.rejected, (state, action) => {
+        state.isLoading = false
+        state.isError = true
+        state.message = action.payload
+      })
+      .addCase(deletePet.pending, (state, action) => {
+        state.isLoading = true
+      })
+      .addCase(deletePet.fulfilled, (state, action) => {
+        state.isLoading = false
+        state.isSuccess = true
+        state.pets = action.payload
+      })
+      .addCase(deletePet.rejected, (state, action) => {
         state.isLoading = false
         state.isError = true
         state.message = action.payload

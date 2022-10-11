@@ -10,15 +10,27 @@ const getPets = async () => {
 
 // Create pet
 const createPet = async (petData) => {
-  console.log(petData)
   const response = await axios.post(API_URL, petData)
-  console.log(response)
+  return response.data
+}
+
+// Edit pet
+const editPet = async (petId) => {
+  const response = await axios.patch(API_URL, petId)
+  return response.data
+}
+
+// Delete pet
+const deletePet = async (petId) => {
+  const response = await axios.delete(API_URL, petId)
   return response.data
 }
 
 const petService = {
   getPets,
   createPet,
+  editPet,
+  deletePet,
 }
 
 export default petService
