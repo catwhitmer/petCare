@@ -3,6 +3,7 @@ import { useLocation, useNavigate } from 'react-router-dom'
 import Card from '@mui/material/Card'
 import DeleteForeverIcon from '@mui/icons-material/DeleteForever';
 import { deletePet } from '../features/pets/petSlice';
+import Todos from './todos';
 
 const Pet = () => {
 
@@ -15,20 +16,19 @@ const Pet = () => {
   const petID = location.pathname.replace('/pets/', '')
   const currentPet = petData.filter((pet) => pet._id === petID)
 
-  const handleDelete = () => {
+  const handlePetDelete = () => {
     if (currentPet[0]._id === petID) {
       //alert('Are you sure?')
       dispatch(deletePet(petID))
       navigate('/pets')
 
     }
-    
   }
 
   return (
     <div className='pet-wrapper'>    
-        <Card className='pet'>
-          <DeleteForeverIcon className='icon' onClick={handleDelete} style={{float: 'right'}}/>
+        <Card className='card'>
+          <DeleteForeverIcon className='icon' onClick={handlePetDelete} style={{float: 'right'}}/>
           <h1>{currentPet[0].name}</h1> 
           <div style={{textAlign: 'left'}}>
             <h3>{currentPet[0].species}</h3>
@@ -36,6 +36,7 @@ const Pet = () => {
             <h3>{currentPet[0].age}</h3>
           </div>
         </Card>
+        <Todos/>
     </div>
   )
 }
