@@ -3,9 +3,10 @@ const asyncHandler = require('express-async-handler')
 const Todo = require('../models/todoModel')
 
 // @desc Get todoss
-// @route GET /api/todos
+// @route GET /api/pets/todos
 // @access Private
 const getTodos = asyncHandler(async (req, res) => {
+    res.send(req.params)
     const todos =  await Todo.find()
     
     res.status(200).json(todos)
