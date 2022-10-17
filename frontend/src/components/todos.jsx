@@ -8,7 +8,7 @@ const Todos = () => {
   const dispatch = useDispatch()
 
   useEffect(() => {
-    dispatch()
+    //dispatch()
   }, [])
 
   const handleTodoDelete = () => {
@@ -16,15 +16,13 @@ const Todos = () => {
   }
 
   return (
-    <div>    
-      <Card className='card'>
-        <DeleteForeverIcon className='icon' onClick={handleTodoDelete} style={{float: 'right'}}/>
+    <Card className='card'>
+      <DeleteForeverIcon className='icon' onClick={handleTodoDelete} style={{float: 'right'}}/>
         <h2>To-Dos</h2>
           <div>
             <li style={{textAlign: 'left'}}>Go for a walk</li>
           </div>
-      </Card>
-    </div>
+    </Card>
   )
 }
 

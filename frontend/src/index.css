@@ -22,12 +22,14 @@
   width: 600px;
   padding: 10px;
   text-align: center;
-  display: inline-block;
-  position: absolute;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-self: center;
   left: 0;
   right: 0;
-  bottom: 40px;
   margin: auto;
+  margin-top: 20px;
   border-radius: 20px;
   border: 2px solid #28afb0;
   background-color: #28afb0;
@@ -35,12 +37,16 @@
 
 .pets {
   width: 200px;
-  display: inline-block;
+  flex-direction: column;
+  justify-content: center;
+  align-self: center;
 }
 
 .card {
   width: 300px;
-  display: inline-block;
+  flex-direction: column;
+  justify-content: center;
+  align-self: center;
   padding: 10px;
   margin-top: 20px;
   border-radius: 20px;
@@ -50,7 +56,9 @@
 
 .pet-form {
   width: 500px;
-  display: inline-block;
+  flex-direction: column;
+  justify-content: center;
+  align-self: center;
 }
 
 a {
@@ -86,7 +94,7 @@ li {
   padding: 5px 15px;
   text-align: center;
   text-decoration: none;
-  display: inline-block;
+  display: flex;
   font-size: 16px;
 }
 
