@@ -34,6 +34,7 @@ export const createPet = createAsyncThunk(
   }
 )
 
+// Delete pet
 export const deletePet = createAsyncThunk(
   'pets/deletePet',
   async (id) => {
