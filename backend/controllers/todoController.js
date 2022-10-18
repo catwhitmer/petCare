@@ -16,7 +16,7 @@ const getTodos = asyncHandler(async (req, res) => {
 // @route POST /api/todos
 // @access Private
 const setTodo = asyncHandler(async(req, res) => {
-    if (!req.body.petId) {
+    if (!req.body.description) {
         res.status(400)
         throw new Error('Please add a description')
     }
@@ -24,7 +24,7 @@ const setTodo = asyncHandler(async(req, res) => {
     const todo = await Todo.create({
         description: req.body.description,
         notes: req.body.notes,
-        petId: req.body.petId
+        petId: req.body.petID
     })
     res.status(200).json(todo)
 })
