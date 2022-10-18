@@ -67,6 +67,19 @@
   align-self: center;
 }
 
+.todo {
+  align-self: center;
+}
+
+.todo-icon {
+  float: right;
+  align-self: center;
+}
+
+.todo-icon:hover {
+  color:#28afb0;
+}
+
 a {
   color: rgb(214, 214, 214);
   text-decoration: none;
