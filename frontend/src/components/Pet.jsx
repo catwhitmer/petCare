@@ -3,7 +3,7 @@ import { useLocation, useNavigate } from 'react-router-dom'
 import Card from '@mui/material/Card'
 import DeleteForeverIcon from '@mui/icons-material/DeleteForever';
 import { deletePet } from '../features/pets/petSlice';
-import Todos from './todos';
+import Todos from './Todos';
 
 const Pet = () => {
 
