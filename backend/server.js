@@ -15,7 +15,7 @@ app.use(cors())
 
 
 app.use('/api/pets', require('./routes/petRoutes'))
-app.use('/api/todos', require('./routes/todoRoutes'))
+app.use('/api/pets/:petID/todos', require('./routes/todoRoutes'))
 
 app.use(errorHandler)
 
