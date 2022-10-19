@@ -4,6 +4,7 @@ import Pets from './components/Pets'
 import Pet from './components/Pet'
 import PetForm from './components/PetForm'
 import Home from './components/Home'
+import Todos from './components/Todos'
 
 
 function App () {
@@ -17,6 +18,7 @@ function App () {
             <Route path='/pets' element={<Pets />} />
             <Route path='/pets/new' element={<PetForm />} />
             <Route path='/pets/:id' element={<Pet />} />
+            <Route path='/pets/:id/todos' element={<Todos />} />
           </Routes>
         </div>
       </Router>
