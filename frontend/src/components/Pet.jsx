@@ -18,7 +18,6 @@ const Pet = () => {
 
   const handlePetDelete = () => {
     if (currentPet[0]._id === petID) {
-      //alert('Are you sure?')
       dispatch(deletePet(petID))
       navigate('/pets')
 
