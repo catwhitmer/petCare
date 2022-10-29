@@ -9,10 +9,10 @@ const Todos = () => {
 
   const dispatch = useDispatch()
 
-  const todoData = useSelector(state => state.todos.todos)
 
   useEffect(() => {
-    dispatch(getTodos())
+    console.log('hello')
+    //dispatch(getTodos())
   }, [])
 
   const handleTodoDelete = () => {
@@ -23,14 +23,15 @@ const Todos = () => {
     <Card className='card'>
       <h2>To-Dos</h2>
         <div className="todo">
-          {todoData.map((todo) => ( 
+          <li>Feed</li>
+          {/* {todoData.map((todo) => ( 
             <>    
-              <li>{todo.description}</li>
+              <li key={todo._id}>{todo.description}</li>
               <li style={{float: 'left'}}>{todo.notes}</li>
               <DeleteForeverIcon className="todo-icon" style={{width: '18px'}}/>
               <AutoFixHighIcon className="todo-icon"style={{width: '18px'}}/>
             </>
-          ))}
+          ))} */}
         </div>
     </Card>
   )
