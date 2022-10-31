@@ -11,7 +11,7 @@ const initialState = {
 
 // Get todos
 export const getTodos = createAsyncThunk(
-  'pets/:petID/getTodos',
+  'todos/getTodos',
   async (petID) => {
     try {
       return await todoService.getTodos(petID)
