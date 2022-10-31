@@ -8,19 +8,20 @@ import { getTodos } from '../features/todos/todoSlice'
 
 const Todos = () => {
 
+  const todoData = useSelector(state => state.todos.todos)
+
   const dispatch = useDispatch()
   const params = useParams()
 
 
   useEffect(() => {
-    dispatch(getTodos(params))
+    dispatch(getTodos({ petID: params.id }))
   }, [])
 
   return (
     <Card className='card'>
       <h2>To-Dos</h2>
         <div className="todo">
-          <li>Feed</li>
           {/* {todoData.map((todo) => ( 
             <>    
               <li key={todo._id}>{todo.description}</li>
