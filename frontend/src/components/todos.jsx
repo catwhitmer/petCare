@@ -3,21 +3,18 @@ import DeleteForeverIcon from '@mui/icons-material/DeleteForever';
 import AutoFixHighIcon from '@mui/icons-material/AutoFixHigh';
 import { useEffect } from 'react'
 import { useDispatch, useSelector } from 'react-redux'
+import { useParams } from 'react-router-dom'
 import { getTodos } from '../features/todos/todoSlice'
 
 const Todos = () => {
 
   const dispatch = useDispatch()
+  const params = useParams()
 
 
   useEffect(() => {
-    console.log('hello')
-    //dispatch(getTodos())
+    dispatch(getTodos(params))
   }, [])
-
-  const handleTodoDelete = () => {
-    console.log('hello')
-  }
 
   return (
     <Card className='card'>
