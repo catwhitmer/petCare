@@ -3,16 +3,16 @@ const asyncHandler = require('express-async-handler')
 const Todo = require('../models/todoModel')
 
 // @desc Get todos
-// @route GET /api/pets/:petID/todos
+// @route GET /api/todos
 // @access Private
 const getTodos = asyncHandler(async (req, res) => {
-    res.send(req.params)
-    const todos =  await Todo.find(req.params)
+    const todos =  await Todo.find()
+
     res.status(200).json(todos)
 })
 
 // @desc Set todos
-// @route POST /api/pets/:petID/todos
+// @route POST /api/todos
 // @access Private
 const setTodo = asyncHandler(async(req, res) => {
     if (!req.body.description) {
@@ -29,7 +29,7 @@ const setTodo = asyncHandler(async(req, res) => {
 })
 
 // @desc Update todo
-// @route PUT /api/pets/:petID/todos/:id
+// @route PUT /api/todos/:id
 // @access Private
 const updateTodo = asyncHandler(async (req, res) => {
     const todo = await Todo.findById(req.params.id)
@@ -47,7 +47,7 @@ const updateTodo = asyncHandler(async (req, res) => {
 }) 
 
 // @desc Delete todo
-// @route DELETE /api/pets/:petID/todos/:id
+// @route DELETE /api/todos/:id
 // @access Private
 const deleteTodo = asyncHandler(async (req, res) => {
     const todo = await Todo.findById(req.params.id)

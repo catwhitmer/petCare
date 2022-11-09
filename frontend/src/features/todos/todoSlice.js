@@ -12,9 +12,9 @@ const initialState = {
 // Get todos
 export const getTodos = createAsyncThunk(
   'todos/getTodos',
-  async (petID) => {
+  async () => {
     try {
-      return await todoService.getTodos(petID)
+      return await todoService.getTodos()
     } catch (error) {
       return error.data
     }
