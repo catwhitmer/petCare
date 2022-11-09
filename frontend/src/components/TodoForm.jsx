@@ -32,27 +32,24 @@ function TodoForm () {
 	}
 
 	return (
-    <div className='pet-wrapper'>
-      <form className="pet-form" onSubmit={handleOnSubmit}>
-        <h1>Add A New Todo</h1>
-          <input 
-            type='text' 
-            name='description' 
-            value={description} 
-            placeholder= 'Description' 
-            onChange={handleOnChange}
-          />
-          <input 
-            type='text' 
-            name='notes' 
-            value={notes} 
-            placeholder= 'Notes' 
-            onChange={handleOnChange} 
-          />
-          <button type='submit'>Submit</button>
-      </form>
-    </div>
-		
+    <form className="todo-form" onSubmit={handleOnSubmit}>
+      <h1>Add A New Todo</h1>
+        <input 
+          type='text' 
+          name='description' 
+          value={description} 
+          placeholder= 'Description' 
+          onChange={handleOnChange}
+        />
+        <input 
+          type='text' 
+          name='notes' 
+          value={notes} 
+          placeholder= 'Notes' 
+          onChange={handleOnChange} 
+        />
+        <button type='submit'>Submit</button>
+    </form>
   )
 }
 

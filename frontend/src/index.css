@@ -70,9 +70,16 @@
 .todo {
   background-color: #000b49;
   color: #f1f1f1;
-  padding: 4px;
-  margin: 10px;
+  padding: 8px;
+  margin: 5px;
   border-radius: 10px;
+  align-self: center;
+}
+
+.todo-form {
+  width: 500px;
+  flex-direction: column;
+  justify-content: center;
   align-self: center;
 }
 

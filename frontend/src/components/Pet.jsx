@@ -1,9 +1,10 @@
 import { useSelector, useDispatch } from 'react-redux'
 import { useLocation, useNavigate } from 'react-router-dom'
 import Card from '@mui/material/Card'
-import DeleteForeverIcon from '@mui/icons-material/DeleteForever';
-import { deletePet } from '../features/pets/petSlice';
-import Todos from './Todos';
+import DeleteForeverIcon from '@mui/icons-material/DeleteForever'
+import { deletePet } from '../features/pets/petSlice'
+import Todos from './Todos'
+import TodoForm from './TodoForm'
 
 const Pet = () => {
 
@@ -37,6 +38,7 @@ const Pet = () => {
           </div>
         </Card>
         <Todos currentPet={currentPet}/>
+        <TodoForm />
     </div>
   )
 }
