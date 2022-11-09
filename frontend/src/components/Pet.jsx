@@ -36,7 +36,7 @@ const Pet = () => {
             <h3>{currentPet[0].age}</h3>
           </div>
         </Card>
-        <Todos />
+        <Todos currentPet={currentPet}/>
     </div>
   )
 }
