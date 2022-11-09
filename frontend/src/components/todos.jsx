@@ -21,10 +21,9 @@ const Todos = ({ currentPet }) => {
       <h2>To-Dos</h2>
         {todos.map((todo) => ( 
           <div className="todo">  
-            <li key={todos._id}>{todo.description}</li>
-            <li>{todo.notes}</li>
             <DeleteForeverIcon className="todo-icon" style={{width: '18px'}}/>
             <AutoFixHighIcon className="todo-icon"style={{width: '18px'}}/>
+            <p key={todos._id}>{todo.description} - {todo.notes}</p>
           </div>
         ))}
     </Card>

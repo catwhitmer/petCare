@@ -68,12 +68,18 @@
 }
 
 .todo {
+  background-color: #000b49;
+  color: #f1f1f1;
+  padding: 4px;
+  margin: 10px;
+  border-radius: 10px;
   align-self: center;
 }
 
 .todo-icon {
   float: right;
   align-self: center;
+  color: #f1f1f1;
 }
 
 .todo-icon:hover {
