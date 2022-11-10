@@ -38,7 +38,7 @@ const Pet = () => {
           </div>
         </Card>
         <Todos currentPet={currentPet}/>
-        <TodoForm />
+        <TodoForm currentPet={currentPet} />
     </div>
   )
 }
