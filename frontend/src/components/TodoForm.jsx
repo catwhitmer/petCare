@@ -1,13 +1,15 @@
 import { useState } from "react"
 import { useDispatch } from 'react-redux'
+import { createTodo } from '../features/todos/todoSlice'
 
-function TodoForm () {
+function TodoForm ({ currentPet }) {
 
   const dispatch = useDispatch()
 
   const [formData, setFormData] = useState({
     description: '',
     notes: '',
+    petID: currentPet[0]._id
   })
 
   const { description, notes } = formData
@@ -15,8 +17,7 @@ function TodoForm () {
 
 	const handleOnSubmit  = (e) => {
     e.preventDefault()
-
-    //dispatch(createTodo( { formData }))
+    dispatch(createTodo( { formData }))
 
     setFormData({
       description: '',
