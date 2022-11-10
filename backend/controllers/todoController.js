@@ -23,7 +23,7 @@ const setTodo = asyncHandler(async(req, res) => {
     const todo = await Todo.create({
         description: req.body.description,
         notes: req.body.notes,
-        _petId: req.body._petID
+        petID: req.body.petID
     })
     res.status(200).json(todo)
 })

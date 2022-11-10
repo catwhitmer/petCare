@@ -8,7 +8,7 @@ const todoSchema = mongoose.Schema({
     notes: {
         type: String
     },
-    _petID: {
+    petID: {
         type: String,
         required: [true, 'Pet not found'],
     }

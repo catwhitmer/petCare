@@ -9,7 +9,7 @@ function TodoForm ({ currentPet }) {
   const [formData, setFormData] = useState({
     description: '',
     notes: '',
-    _petID: currentPet[0]._id
+    petID: currentPet[0]._id
   })
 
   const { description, notes } = formData

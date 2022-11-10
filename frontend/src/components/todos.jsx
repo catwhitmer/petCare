@@ -10,7 +10,7 @@ const Todos = ({ currentPet }) => {
   const dispatch = useDispatch()
 
   const todoData = useSelector(state => state.todos.todos)
-  const todos = todoData.filter((todo) => todo._petID === currentPet[0]._id)
+  const todos = todoData.filter((todo) => todo.petID === currentPet[0]._id)
 
   useEffect(() => {
     dispatch(getTodos())
