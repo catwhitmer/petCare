@@ -14,9 +14,18 @@ const createTodo = async (todoData) => {
   return response.data
 }
 
+// Update todo
+
+// Delete todo
+const deleteTodo = async (todoId) => {
+  const response = await axios.delete(API_URL + todoId)
+  return response.data
+}
+
 const todoService = {
   getTodos,
   createTodo,
+  deleteTodo,
 }
 
 export default todoService
