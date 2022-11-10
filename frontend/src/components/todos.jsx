@@ -3,7 +3,7 @@ import DeleteForeverIcon from '@mui/icons-material/DeleteForever';
 import AutoFixHighIcon from '@mui/icons-material/AutoFixHigh';
 import { useEffect } from 'react'
 import { useDispatch, useSelector } from 'react-redux'
-import { getTodos } from '../features/todos/todoSlice'
+import { getTodos, deleteTodo } from '../features/todos/todoSlice'
 
 const Todos = ({ currentPet }) => {
 
@@ -14,16 +14,22 @@ const Todos = ({ currentPet }) => {
 
   useEffect(() => {
     dispatch(getTodos())
-  }, [])
+  }, [todos])
+
+  const handleTodoDelete = (todo) => {
+    if (window.confirm('Are you sure you want to delete this todo?')) {
+      dispatch(deleteTodo(`${todo._id}`))
+    }
+  }
 
   return (
     <Card className='card'>
       <h2>To-Dos</h2>
         {todos.map((todo) => ( 
-          <div className="todo">  
-            <DeleteForeverIcon className="todo-icon" style={{width: '18px'}}/>
+          <div className="todo" key={todo._id}>  
+            <DeleteForeverIcon className="todo-icon" onClick={() => handleTodoDelete(todo)} style={{width: '18px'}}/>
             <AutoFixHighIcon className="todo-icon"style={{width: '18px'}}/>
-            <p key={todos._id}>{todo.description} - {todo.notes}</p>
+            <p >{todo.description} - {todo.notes}</p>
           </div>
         ))}
     </Card>
