@@ -99,10 +99,12 @@ export const todoSlice = createSlice({
       .addCase(updateTodo.fulfilled, (state, action) => {
         state.isLoading = false
         state.isSuccess = true
-        state.todos = state.todos.filter((todo) => todo._id === action.payload._id)
-        state.todos = {
-          ...state.todos,
-          ...action.payload,
+       
+        const updatedTodo = state.todos.find((todo) => todo._id === action.payload._id)
+        
+        if (updatedTodo) {
+          updatedTodo.description = action.payload.description
+          updatedTodo.notes = action.payload.notes
         }
       })
       .addCase(updateTodo.rejected, (state, action) => {

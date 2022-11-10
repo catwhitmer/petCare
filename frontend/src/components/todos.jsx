@@ -22,9 +22,9 @@ const Todos = ({ currentPet }) => {
     }
   }
 
-  const handleTodoUpdate = (todo) => {
-    // dispatch(updateTodo(`${todo._id}`))
-  }
+  // const handleTodoUpdate = (todo) => {
+  //   dispatch(updateTodo(`${todo._id}`))
+  // }
 
   return (
     <Card className='card'>
@@ -32,7 +32,7 @@ const Todos = ({ currentPet }) => {
         {todos.map((todo) => ( 
           <div className="todo" key={todo._id}>  
             <DeleteForeverIcon className="todo-icon" onClick={() => handleTodoDelete(todo)} style={{width: '18px'}}/>
-            <AutoFixHighIcon className="todo-icon" onClick={() => handleTodoUpdate(todo)} style={{width: '18px'}}/>
+            {/* <AutoFixHighIcon className="todo-icon" onClick={() => handleTodoUpdate(todo)} style={{width: '18px'}}/> */}
             <p >{todo.description} - {todo.notes}</p>
           </div>
         ))}
