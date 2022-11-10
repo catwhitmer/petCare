@@ -20,8 +20,6 @@ function App () {
             <Route path='/pets' element={<Pets />} />
             <Route path='/pets/new' element={<PetForm />} />
             <Route path='/pets/:id' element={<Pet />} />
-            <Route path='/pets/:petID/todos' element={<Todos />} />
-            <Route path='/pets/:petID/todos/new' element={<TodoForm />} />
             <Route path='/*' element={<NotFound />} />
           </Routes>
         </div>
