@@ -35,7 +35,7 @@ function TodoForm ({ currentPet }) {
 
 	return (
     <form className="todo-form" onSubmit={handleOnSubmit}>
-      <h1>Add A New Todo</h1>
+      <h1>Add A New To-Do</h1>
         <input 
           type='text' 
           name='description' 
