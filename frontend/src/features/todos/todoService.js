@@ -15,6 +15,10 @@ const createTodo = async (todoData) => {
 }
 
 // Update todo
+const updateTodo = async (todoId) => {
+  const response = await axios.patch(API_URL, todoId)
+  return response.data
+}
 
 // Delete todo
 const deleteTodo = async (todoId) => {
@@ -25,6 +29,7 @@ const deleteTodo = async (todoId) => {
 const todoService = {
   getTodos,
   createTodo,
+  updateTodo,
   deleteTodo,
 }
 

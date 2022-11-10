@@ -35,6 +35,16 @@ export const createTodo = createAsyncThunk(
 )
 
 // Update todo
+export const updateTodo = createAsyncThunk(
+  'todos/updateTodo',
+  async (todoId) => {
+    try {
+      return await todoService.deleteTodo(todoId)
+    } catch (error) {
+      return error.data
+    }
+  }
+)
 
 // Delete todo
 export const deleteTodo = createAsyncThunk(
@@ -78,6 +88,19 @@ export const todoSlice = createSlice({
         state.todos.push(action.payload)
       })
       .addCase(createTodo.rejected, (state, action) => {
+        state.isLoading = false
+        state.isError = true
+        state.message = action.payload
+      })
+      .addCase(updateTodo.pending, (state, action) => {
+        state.isLoading = true
+      })
+      .addCase(updateTodo.fulfilled, (state, action) => {
+        state.isLoading = false
+        state.isSuccess = true
+        state.todos = state.todos.filter((todo) => todo._id !== action.payload._id)
+      })
+      .addCase(updateTodo.rejected, (state, action) => {
         state.isLoading = false
         state.isError = true
         state.message = action.payload
