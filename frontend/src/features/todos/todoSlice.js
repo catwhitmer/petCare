@@ -37,9 +37,10 @@ export const createTodo = createAsyncThunk(
 // Update todo
 export const updateTodo = createAsyncThunk(
   'todos/updateTodo',
-  async (todoId) => {
+  async ({todoId, todoData}) => {
+    const todoInfo = todoData.formData
     try {
-      return await todoService.deleteTodo(todoId)
+      return await todoService.updateTodo(todoId, todoInfo)
     } catch (error) {
       return error.data
     }
@@ -98,7 +99,11 @@ export const todoSlice = createSlice({
       .addCase(updateTodo.fulfilled, (state, action) => {
         state.isLoading = false
         state.isSuccess = true
-        state.todos = state.todos.filter((todo) => todo._id !== action.payload._id)
+        state.todos = state.todos.filter((todo) => todo._id === action.payload._id)
+        state.todos = {
+          ...state.todos,
+          ...action.payload,
+        }
       })
       .addCase(updateTodo.rejected, (state, action) => {
         state.isLoading = false

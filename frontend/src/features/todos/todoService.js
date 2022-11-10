@@ -15,8 +15,8 @@ const createTodo = async (todoData) => {
 }
 
 // Update todo
-const updateTodo = async (todoId) => {
-  const response = await axios.patch(API_URL, todoId)
+const updateTodo = async (todoId, todoData) => {
+  const response = await axios.put(API_URL, todoId, todoData)
   return response.data
 }
 
