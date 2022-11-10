@@ -9,7 +9,7 @@ const todoSchema = mongoose.Schema({
         type: String
     },
     petID: {
-        type: Number,
+        type: String,
         required: [true, 'Pet not found'],
     }
 }, {
