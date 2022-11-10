@@ -19,7 +19,7 @@ function PetForm () {
 	const handleOnSubmit  = (e) => {
     e.preventDefault()
 
-    dispatch(createPet( { formData }))
+    dispatch(createPet({ formData }))
 
     setFormData({
       name: '',

@@ -25,8 +25,9 @@ export const getTodos = createAsyncThunk(
 export const createTodo = createAsyncThunk(
   'todos/createTodo',
   async (todoData) => {
+    const todoInfo = todoData.formData
     try {
-      return await todoService.createTodo(todoData)
+      return await todoService.createTodo(todoInfo)
     } catch (error) {
       return error.data
     }

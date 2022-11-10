@@ -9,7 +9,7 @@ function TodoForm ({ currentPet }) {
   const [formData, setFormData] = useState({
     description: '',
     notes: '',
-    petID: currentPet[0]._id
+    _petID: currentPet[0]._id
   })
 
   const { description, notes } = formData
@@ -17,7 +17,8 @@ function TodoForm ({ currentPet }) {
 
 	const handleOnSubmit  = (e) => {
     e.preventDefault()
-    dispatch(createTodo( { formData }))
+
+    dispatch(createTodo({ formData }))
 
     setFormData({
       description: '',
