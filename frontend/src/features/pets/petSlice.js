@@ -21,7 +21,7 @@ export const getPets = createAsyncThunk(
   }
 )
 
-// Create Pet
+// Create pet
 export const createPet = createAsyncThunk(
   'pets/createPet',
   async (petData) => {

@@ -21,6 +21,18 @@ export const getTodos = createAsyncThunk(
   }
 )
 
+// Create todo
+export const createTodo = createAsyncThunk(
+  'todos/createTodo',
+  async () => {
+    try {
+      return await todoService.createTodo()
+    } catch (error) {
+      return error.data
+    }
+  }
+)
+
 export const todoSlice = createSlice({
   name: 'todos',
   initialState,
@@ -38,6 +50,19 @@ export const todoSlice = createSlice({
         state.todos = action.payload
       })
       .addCase(getTodos.rejected, (state, action) => {
+        state.isLoading = false
+        state.isError = true
+        state.message = action.payload
+      })
+      .addCase(createTodo.pending, (state, action) => {
+        state.isLoading = true
+      })
+      .addCase(createTodo.fulfilled, (state, action) => {
+        state.isLoading = false
+        state.isSuccess = true
+        state.todos.push(action.payload)
+      })
+      .addCase(createTodo.rejected, (state, action) => {
         state.isLoading = false
         state.isError = true
         state.message = action.payload
