@@ -37,9 +37,9 @@ export const createPet = createAsyncThunk(
 // Delete pet
 export const deletePet = createAsyncThunk(
   'pets/deletePet',
-  async (id) => {
+  async (petId) => {
     try {
-      return await petService.deletePet(id)
+      return await petService.deletePet(petId)
     } catch (error) {
       return error.data
     }
