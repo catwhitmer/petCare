@@ -1,8 +1,8 @@
 {
   "name": "petcare",
   "version": "1.0.0",
-  "description": "",
-  "main": "index.js",
+  "description": "Pet Care to track your pets needs",
+  "main": "server.js",
   "scripts": {
     "start": "node backend/server.js",
     "server": "nodemon backend/server.js",
