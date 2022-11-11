@@ -16,7 +16,7 @@ function PetForm () {
   const { name, species, breed, age } = formData
 
 
-	const handleOnSubmit  = (e) => {
+	const handleSubmit  = (e) => {
     e.preventDefault()
 
     dispatch(createPet({ formData }))
@@ -29,7 +29,7 @@ function PetForm () {
     })
 	}
 
-	const handleOnChange = (e) => {
+	const handleChange = (e) => {
     setFormData((prevState) => ({
       ...prevState,
       [e.target.name]: e.target.value,
@@ -38,35 +38,35 @@ function PetForm () {
 
 	return (
     <div className='pet-wrapper'>
-      <form className="pet-form" onSubmit={handleOnSubmit}>
+      <form className="pet-form" onSubmit={handleSubmit}>
         <h1>Add A New Pet</h1>
           <input 
             type='text' 
             name='name' 
             value={name} 
             placeholder= 'Name' 
-            onChange={handleOnChange}
+            onChange={handleChange}
           />
           <input 
             type='text' 
             name='species' 
             value={species} 
             placeholder= 'Species' 
-            onChange={handleOnChange} 
+            onChange={handleChange} 
           />
           <input 
             type='text' 
             name='breed' 
             value={breed} 
             placeholder='Breed' 
-            onChange={handleOnChange}
+            onChange={handleChange}
           />
           <input 
             type='text' 
             name='age' 
             value={age} 
             placeholder= 'Age' 
-            onChange={handleOnChange} 
+            onChange={handleChange} 
           />
           <button type='submit'>Submit</button>
       </form>

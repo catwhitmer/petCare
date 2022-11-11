@@ -1,10 +1,12 @@
 import { useState } from "react"
 import { useDispatch } from 'react-redux'
+import { useParams } from 'react-router-dom'
 import { createTodo } from '../features/todos/todoSlice'
 
 function TodoForm ({ currentPet }) {
 
   const dispatch = useDispatch()
+  const params = useParams()
 
   const [formData, setFormData] = useState({
     description: '',
@@ -14,8 +16,7 @@ function TodoForm ({ currentPet }) {
 
   const { description, notes } = formData
 
-
-	const handleOnSubmit  = (e) => {
+	const handleSubmit  = (e) => {
     e.preventDefault()
 
     dispatch(createTodo({ formData }))
@@ -26,7 +27,7 @@ function TodoForm ({ currentPet }) {
     })
 	}
 
-	const handleOnChange = (e) => {
+	const handleChange = (e) => {
     setFormData((prevState) => ({
       ...prevState,
       [e.target.name]: e.target.value,
@@ -34,21 +35,21 @@ function TodoForm ({ currentPet }) {
 	}
 
 	return (
-    <form className="todo-form" onSubmit={handleOnSubmit}>
+    <form className="todo-form" onSubmit={handleSubmit}>
       <h1>Add A New To-Do</h1>
         <input 
           type='text' 
           name='description' 
           value={description} 
           placeholder= 'Description' 
-          onChange={handleOnChange}
+          onChange={handleChange}
         />
         <input 
           type='text' 
           name='notes' 
           value={notes} 
           placeholder= 'Notes' 
-          onChange={handleOnChange} 
+          onChange={handleChange} 
         />
         <button type='submit'>Submit</button>
     </form>
