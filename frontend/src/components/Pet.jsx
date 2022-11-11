@@ -17,7 +17,7 @@ const Pet = () => {
   const petID = location.pathname.replace('/pets/', '')
   const currentPet = petData.filter((pet) => pet._id === petID)
 
-  const handlePetDelete = () => {
+  const handleDelete = () => {
     if (window.confirm('Are you sure you want to delete this pet?')) {
       if (currentPet[0]._id === petID) {
         dispatch(deletePet(petID))
@@ -29,7 +29,7 @@ const Pet = () => {
   return (
     <div className='pet-wrapper'>    
         <Card className='card'>
-          <DeleteForeverIcon className='icon' onClick={handlePetDelete} style={{float: 'right'}}/>
+          <DeleteForeverIcon className='icon' onClick={handleDelete} style={{float: 'right'}}/>
           <h1>{currentPet[0].name}</h1> 
           <div style={{textAlign: 'left'}}>
             <h3>{currentPet[0].species}</h3>
