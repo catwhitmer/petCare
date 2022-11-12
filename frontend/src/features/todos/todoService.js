@@ -1,6 +1,6 @@
 import axios from 'axios'
 
-const API_URL = 'http://localhost:8000/api/todos/'
+const API_URL = 'http://localhost:8000/api/todos'
 
 // Get todos
 const getTodos = async () => {
@@ -10,19 +10,19 @@ const getTodos = async () => {
 
 // Create Todo
 const createTodo = async (todoData) => {
-  const response = await axios.post(API_URL, todoData)
+  const response = await axios.post(API_URL + '/', todoData)
   return response.data
 }
 
 // Update todo
 const updateTodo = async (todoId, todoData) => {
-  const response = await axios.put(API_URL, todoId, todoData)
+  const response = await axios.put(API_URL + '/', todoId, todoData)
   return response.data
 }
 
 // Delete todo
 const deleteTodo = async (todoId) => {
-  const response = await axios.delete(API_URL + todoId)
+  const response = await axios.delete(API_URL + '/' + todoId)
   return response.data
 }
 

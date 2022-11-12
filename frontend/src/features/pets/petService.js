@@ -1,6 +1,6 @@
 import axios from 'axios'
 
-const API_URL = 'http://localhost:8000/api/pets/'
+const API_URL = 'http://localhost:8000/api/pets'
 
 // Get pets
 const getPets = async () => {
@@ -10,13 +10,13 @@ const getPets = async () => {
 
 // Create pet
 const createPet = async (petData) => {
-  const response = await axios.post(API_URL, petData)
+  const response = await axios.post(API_URL + '/', petData)
   return response.data
 }
 
 // Delete pet
 const deletePet = async (petId) => {
-  const response = await axios.delete(API_URL + petId)
+  const response = await axios.delete(API_URL + '/' + petId)
   return response.data
 }
 
