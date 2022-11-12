@@ -1,6 +1,6 @@
 import axios from 'axios'
 
-const API_URL = 'http://localhost:8000/api/todos/'
+const API_URL = '/api/todos/'
 
 // Get todos
 const getTodos = async () => {

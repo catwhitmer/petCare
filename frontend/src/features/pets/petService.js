@@ -1,6 +1,6 @@
 import axios from 'axios'
 
-const API_URL = 'http://localhost:8000/api/pets/'
+const API_URL = '/api/pets/'
 
 // Get pets
 const getPets = async () => {
