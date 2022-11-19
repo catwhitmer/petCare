@@ -1,24 +1,27 @@
-const mongoose = require('mongoose')
+const mongoose = require("mongoose");
 
-const petSchema = mongoose.Schema({
+const petSchema = mongoose.Schema(
+  {
     name: {
-        type: String,
-        required: [true, 'Please add a name'],
+      type: String,
+      required: [true, "Please add a name"],
     },
     species: {
-        type: String,
-        required: [true, 'Please add a species'],
+      type: String,
+      required: [true, "Please add a species"],
     },
     breed: {
-        type: String,
-        required: [true, 'Please add a breed'],
+      type: String,
+      required: [true, "Please add a breed"],
     },
     age: {
-        type: Number,
-        required: [true, 'Please add an age'],
-    }
-}, {
+      type: Number,
+      required: [true, "Please add an age"],
+    },
+  },
+  {
     timestamps: true,
-})
+  }
+);
 
-module.exports = mongoose.model('Pets', petSchema)
+module.exports = mongoose.model("Pets", petSchema);
