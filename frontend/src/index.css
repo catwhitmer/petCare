@@ -13,6 +13,7 @@
   height: 80px;
   padding: 10px;
   display: flex;
+  align-content: center;
   justify-content: space-between;
   border-radius: 20px;
   font-size: 1.5em;
@@ -24,8 +25,13 @@
   align-self: center;
 }
 
+.link {
+  padding: 10px;
+}
+
 .nav-images {
-  align-self: center;
+  display: flex;
+  gap: 10px;
 }
 
 .pet-wrapper {
@@ -135,9 +141,9 @@ li {
 }
 
 .img {
-  width: 70px;
-  height: 70px;
-  padding: 1em;
+  width: 80px;
+  height: 80px;
+  border-radius: 10px;
 }
 
 .icon:hover {

@@ -4,8 +4,9 @@ function NavBar() {
   return (
     <div className="nav-bar">
       <div className="nav-links">
-        <Link to="/">Home</Link> - <Link to="/pets">All Pets</Link> -{" "}
-        <Link to="/pets/new">Add Pet</Link>
+        <Link className="link" to="/">Home</Link>
+        <Link className="link" to="/pets">All Pets</Link>
+        <Link className="link" to="/pets/new">Add Pet</Link>
       </div>
       <div className="nav-images">
         <img src="Pet1.png" className="img" alt="dog"></img>
